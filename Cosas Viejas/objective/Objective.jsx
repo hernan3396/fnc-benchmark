@@ -1,12 +1,13 @@
 import Axios from "axios";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { objectives, brands, token } from "../../app/constants";
 import Thumbnail from "./Thumbnail";
 
 export default function Objective() {
+  const tests = useSelector((state) => state.objective.test);
   const [adsData, setAdsData] = useState([]);
 
   const brandName = useParams().brandName;
@@ -32,11 +33,23 @@ export default function Objective() {
 
   return (
     <div>
-      <ul>
-        {adsData.map((ad) => (
-          <Thumbnail key={ad.ad_id} adId={ad.ad_id} />
-        ))}
-      </ul>
+      <Row>
+        <Col>
+          <ul>
+            {adsData.map((ad) => (
+              <Thumbnail key={ad.ad_id} adId={ad.ad_id} />
+            ))}
+          </ul>
+        </Col>
+        <Col>
+          <ul>
+            {adsData.map((ad) => (
+              <Thumbnail key={ad.ad_id} adId={ad.ad_id} />
+            ))}
+          </ul>
+        </Col>
+      </Row>
+      {tests}
     </div>
   );
 }

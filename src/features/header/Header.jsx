@@ -20,6 +20,8 @@ function Header() {
             BENCHMARK
           </Navbar.Brand>
         </Link>
+
+        <Link to="/comparativo">Comparativo</Link>
       </Navbar>
     </>
   );

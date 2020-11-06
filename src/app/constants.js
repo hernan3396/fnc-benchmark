@@ -20,6 +20,12 @@ export const brands = [
     image:
       "https://scontent.fmvd3-1.fna.fbcdn.net/v/t31.0-8/26685888_1982631818443826_3736743812571378817_o.png?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=6vYTqnL_UmsAX_oW-HJ&_nc_ht=scontent.fmvd3-1.fna&oh=28447e1aba72088b250ecb6903ac17b2&oe=5FB7AD00",
   },
+  {
+    id: "280277176149653",
+    name: "Pilsen",
+    image:
+      "https://scontent.fmvd3-1.fna.fbcdn.net/v/t31.0-8/26685888_1982631818443826_3736743812571378817_o.png?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=6vYTqnL_UmsAX_oW-HJ&_nc_ht=scontent.fmvd3-1.fna&oh=28447e1aba72088b250ecb6903ac17b2&oe=5FB7AD00",
+  },
 ];
 
 export const objectives = [

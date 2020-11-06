@@ -2,14 +2,10 @@ import Axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import { token } from "../../app/constants";
 
 export default function Thumbnail({ adId }) {
-  const objectiveName = useParams().objectiveName;
-
   const [thumbnail, setThumbnail] = useState("");
-  const [creativeId, setCreativeId] = useState("");
 
   const fetchCreativeId = async () => {
     const response = await Axios.get(
@@ -22,7 +18,6 @@ export default function Thumbnail({ adId }) {
       `https://graph.facebook.com/v8.0/${response.data.creative.id}?fields=thumbnail_url&access_token=${token}`
     );
 
-    setCreativeId(response.data.creative.id);
     setThumbnail(fetchThumbnail.data.thumbnail_url);
   };
 
@@ -32,10 +27,8 @@ export default function Thumbnail({ adId }) {
 
   return (
     <div>
-      <Link to={`${objectiveName}/${adId}/${creativeId}`}>
-        ID del anuncio - {adId}
-        <img src={thumbnail} alt={adId}></img>
-      </Link>
+      {adId}
+      <img src={thumbnail} alt={adId}></img>
     </div>
   );
 }
