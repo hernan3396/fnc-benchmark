@@ -1,4 +1,6 @@
 import React from "react";
+import * as constants from "../../app/constants";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useDispatch, useSelector } from "react-redux";

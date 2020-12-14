@@ -5,7 +5,7 @@ import * as constants from "../../app/constants";
 const comparativeSlice = createSlice({
   name: "comparative",
   initialState: {
-    posts: ["asd", "pepe"],
+    posts: [],
     fetchingPosts: false,
     fetchingPostsError: null,
   },

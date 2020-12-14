@@ -1,30 +1,19 @@
-export const token =
-  "EAAKoCACPb94BALeSYxtkspQi6OiTtzWI3LL6ZAbVrrFv0OZAtkhFja7c2UZCX1lH2tmfu7LWcdslndMWEek9y1HdpSrFHIZCrL2FIzYXDlB7SkqaMyML6xYWz843oRYqtbwHSM2dly2Id4Uyizdejn7aTHWW2NZAeWuLrDUzHWtnLwsOZAIXDONj2ZAL6TiIxZBPSJUHvckuZCQZDZD";
-
 export const brands = [
   {
-    id: "574092713026697",
-    name: "Stella Artois",
+    id: "280277176149653",
+    name: "Pilsen",
     image:
-      "https://scontent.fmvd3-1.fna.fbcdn.net/v/t1.0-9/47689385_2720767221482238_5183531952925310976_n.jpg?_nc_cat=102&ccb=2&_nc_sid=09cbfe&_nc_ohc=-bNN6aP5gb4AX_9xcns&_nc_ht=scontent.fmvd3-1.fna&oh=93ac55575fd0b571534f660338637d32&oe=5FB62BC9",
+      "https://scontent.fmvd3-1.fna.fbcdn.net/v/t31.0-8/26685888_1982631818443826_3736743812571378817_o.png?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=6vYTqnL_UmsAX_oW-HJ&_nc_ht=scontent.fmvd3-1.fna&oh=28447e1aba72088b250ecb6903ac17b2&oe=5FB7AD00",
+    token:
+      "EAADZCQmNc9oYBAMcFllH1hXZASSTl7tVFyjN6EurjayM3rWfGwRjQ8iP1nygD6c8oIv0ReFNfUR32EELNkKBpYr3YohOZB9aq07UPW42eeSv7fHnevlSMskl22hGl4DAPo5cjPe1hOe3ylRzemSA0eHQKoWrydx4MpXbJx2d6jFZBJp1p60ZBaa9N8xKnmY9GodLufLiflAZDZD",
   },
   {
     id: "207191843553552",
     name: "Corona",
     image:
       "https://scontent.fmvd3-1.fna.fbcdn.net/v/t1.0-9/13507259_889815967812952_1108008068695395000_n.png?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=_RiPMB1-e08AX_qphd-&_nc_ht=scontent.fmvd3-1.fna&oh=174a44f41bda9c893d768d9c2a69d183&oe=5FB54F77",
-  },
-  {
-    id: "350247045784407",
-    name: "Patricia",
-    image:
-      "https://scontent.fmvd3-1.fna.fbcdn.net/v/t31.0-8/26685888_1982631818443826_3736743812571378817_o.png?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=6vYTqnL_UmsAX_oW-HJ&_nc_ht=scontent.fmvd3-1.fna&oh=28447e1aba72088b250ecb6903ac17b2&oe=5FB7AD00",
-  },
-  {
-    id: "280277176149653",
-    name: "Pilsen",
-    image:
-      "https://scontent.fmvd3-1.fna.fbcdn.net/v/t31.0-8/26685888_1982631818443826_3736743812571378817_o.png?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=6vYTqnL_UmsAX_oW-HJ&_nc_ht=scontent.fmvd3-1.fna&oh=28447e1aba72088b250ecb6903ac17b2&oe=5FB7AD00",
+    token:
+      "EAAEyeT3h2O4BAAaMTxeZB4p67k8HfwhjWb1eXvKw0AgF3FMYl1w8x4ZAMmd0qNk7KSzjZAvZCK0TwMQ5fZAQx9d6bO09yERDQ5axiRAKGBAmZCXBMSdx6Ino2ZCxFts2B15qvi3bucFuuvAaKEqZCHQZAFAckZCvxfJfQhMJQubSH1NG5aq9EvALpWcDOjEscaWnRWL4tjenUYagZDZD",
   },
 ];
 
