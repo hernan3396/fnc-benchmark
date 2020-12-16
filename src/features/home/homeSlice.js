@@ -46,13 +46,13 @@ export const fetchPosts = () => async (dispatch) => {
 
     //fetch creative and image url
     const creativeResponse = await api.get(
-      `act_${brand.id}/adcreatives?fields=thumbnail_url,id&access_token=${brand.token}`
+      `act_${brand.id}/adcreatives?fields=thumbnail_url,id&thumbnail_height=300&thumbnail_width=300&access_token=${brand.token}`
     );
     const thumbnailId = creativeResponse.data.data;
 
     //fetch ad data
     const adDataResponse = await api.get(
-      `act_${brand.id}/insights?level=ad&fields=ad_id,impressions,clicks,spend,objective&access_token=${brand.token}`
+      `act_${brand.id}/insights?level=ad&fields=ad_id,impressions,clicks,spend,objective,ad_name&access_token=${brand.token}`
     );
     const adData = adDataResponse.data.data;
 
@@ -71,6 +71,7 @@ export const fetchPosts = () => async (dispatch) => {
       dispatch(
         fetchPostsSuccess({
           ad_id: ad.ad_id,
+          ad_name: ad.ad_name,
           objective: ad.objective,
           clicks: ad.clicks,
           date_start: ad.date_start,
@@ -81,17 +82,6 @@ export const fetchPosts = () => async (dispatch) => {
         })
       );
     });
-
-    /*   api
-      .get(
-        `act_${brand.id}/insights?level=ad&fields=ad_id,impressions,clicks,spend&access_token=${brand.token}`
-      )
-      .then(
-        (response) => {
-          response.data.data.map((ad) => dispatch(fetchPostsSuccess(ad)));
-        },
-        (error) => dispatch(fetchPostsError(error.response?.data))
-      ); */
   });
 };
 

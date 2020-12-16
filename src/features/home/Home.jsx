@@ -1,24 +1,22 @@
 import React from "react";
-import * as constants from "../../app/constants";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchPosts } from "./homeSlice";
-import HomePost from "../homePost/HomePost";
+import HomePost from "./homePost/HomePost";
 import { Spinner } from "react-bootstrap";
 
 function Main() {
+  const dispatch = useDispatch();
+
   const homePosts = useSelector((state) => state.home.homePosts);
   const fetchingPosts = useSelector((state) => state.home.fetchingPosts);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
 
-  //ver de que cuando cargues la pagina te traiga los datos 1 vez sola!!
   return (
     <>
       {fetchingPosts && (
@@ -29,7 +27,7 @@ function Main() {
 
       <ul>
         {homePosts.map((ad) => (
-          <HomePost key={ad.ad_id} data={ad} />
+          <HomePost key={ad.ad_id} ad={ad} />
         ))}
       </ul>
     </>

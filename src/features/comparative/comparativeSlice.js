@@ -31,10 +31,11 @@ export const {
   fetchPostsStart,
   fetchPostsSuccess,
   fetchPostsError,
+  addPostSuccess,
 } = comparativeSlice.actions;
 
-export const fetchPosts = () => async (dispatch) => {
-  dispatch(fetchPostsSuccess("Nuevo post"));
+export const fetchPost = () => async (dispatch) => {
+  dispatch(fetchPostsSuccess());
 };
 
 export default comparativeSlice.reducer;
