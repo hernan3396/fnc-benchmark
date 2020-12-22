@@ -6,6 +6,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 const homeSlice = createSlice({
   name: "home",
   initialState: {
+    clickedPost: null,
     homePosts: [],
     fetchingPosts: false,
     fetchingPostsError: null,
@@ -25,6 +26,9 @@ const homeSlice = createSlice({
       state.fetchingPosts = false;
       state.fetchingPostsError = action.payload;
     },
+    addClickedPostSuccess(state, action) {
+      state.clickedPost = action.payload;
+    },
   },
 });
 
@@ -32,6 +36,7 @@ export const {
   fetchPostsStart,
   fetchPostsSuccess,
   fetchPostsError,
+  addClickedPostSuccess,
 } = homeSlice.actions;
 
 export const fetchPosts = () => async (dispatch) => {
@@ -46,7 +51,7 @@ export const fetchPosts = () => async (dispatch) => {
 
     //fetch creative and image url
     const creativeResponse = await api.get(
-      `act_${brand.id}/adcreatives?fields=thumbnail_url,id&thumbnail_height=300&thumbnail_width=300&access_token=${brand.token}`
+      `act_${brand.id}/adcreatives?fields=thumbnail_url,id,body,effective_object_story_id&thumbnail_height=500&thumbnail_width=500&access_token=${brand.token}`
     );
     const thumbnailId = creativeResponse.data.data;
 
@@ -62,25 +67,46 @@ export const fetchPosts = () => async (dispatch) => {
     and finally matches that creative id with an url and pushes a "post" in dispatch(fetchPostsSucces())
     */
     adData.map((ad) => {
+      var thumbnail;
       const found = adsCreativeId.find((element) => element.id === ad.ad_id);
 
-      const thumbnail = thumbnailId.find(
-        (thumbnail) => thumbnail.id === found.creative.id
-      );
+      //sometimes facebook deletes the image, this checks it
+      if (found) {
+        thumbnail = thumbnailId.find(
+          (thumbnail) => thumbnail.id === found.creative.id
+        );
+      }
 
-      dispatch(
-        fetchPostsSuccess({
-          ad_id: ad.ad_id,
-          ad_name: ad.ad_name,
-          objective: ad.objective,
-          clicks: ad.clicks,
-          date_start: ad.date_start,
-          date_stop: ad.date_stop,
-          impressions: ad.impressions,
-          spend: ad.impressions,
-          thumbnail: thumbnail.thumbnail_url,
-        })
-      );
+      if (thumbnail) {
+        dispatch(
+          fetchPostsSuccess({
+            ad_id: ad.ad_id,
+            ad_name: ad.ad_name,
+            objective: ad.objective,
+            clicks: ad.clicks,
+            date_start: ad.date_start,
+            date_stop: ad.date_stop,
+            impressions: ad.impressions,
+            spend: ad.impressions,
+            thumbnail: thumbnail.thumbnail_url,
+            body: thumbnail.body,
+            post_link: thumbnail.effective_object_story_id,
+          })
+        );
+      } else {
+        dispatch(
+          fetchPostsSuccess({
+            ad_id: ad.ad_id,
+            ad_name: ad.ad_name,
+            objective: ad.objective,
+            clicks: ad.clicks,
+            date_start: ad.date_start,
+            date_stop: ad.date_stop,
+            impressions: ad.impressions,
+            spend: ad.impressions,
+          })
+        );
+      }
     });
   });
 };
